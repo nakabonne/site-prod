@@ -14,7 +14,7 @@ spec:
         app: site-nginx
     spec:
       containers:
-      - image: nakabonne/site:sha-a06c8f3
+      - image: nakabonne/site:sha-844feb7
         name: site-nginx
         ports:
         - containerPort: 80
