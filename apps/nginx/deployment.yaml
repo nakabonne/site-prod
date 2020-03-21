@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: site-nginx
+spec:
+  replicas: 1
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      app: site-nginx
+  template:
+    metadata:
+      labels:
+        app: site-nginx
+    spec:
+      containers:
+      - image: nakabonne/site:sha-78020e9
+        name: site-nginx
+        ports:
+        - containerPort: 80
