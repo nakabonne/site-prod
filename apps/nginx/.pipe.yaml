@@ -1,0 +1,13 @@
+apiVersion: pipecd.dev/v1beta1
+kind: KubernetesApp
+spec:
+  pipeline:
+    stages:
+      - name: K8S_CANARY_ROLLOUT
+        with:
+          replicas: 10%
+      - name: WAIT
+        with:
+          duration: 10s
+      - name: K8S_PRIMARY_UPDATE
+      - name: K8S_CANARY_CLEAN
